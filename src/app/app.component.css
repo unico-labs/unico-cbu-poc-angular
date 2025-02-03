@@ -1,0 +1,40 @@
+.iframe-container {
+  width: 80%; /* Responsivo: largura como porcentagem da tela */
+  max-width: 800px; /* Largura máxima para telas maiores */
+  aspect-ratio: 16 / 9; /* Proporção para conteúdo */
+  background-color: #e0e0e0; /* Fundo cinza claro */
+  border-radius: 12px; /* Bordas arredondadas */
+  overflow: hidden; /* Evita conteúdo transbordar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Centralizado para responsividade */
+}
+
+.logo {
+  width: 80%; /* Responsivo: largura como porcentagem */
+  max-width: 450px; /* Largura máxima */
+  height: auto; /* Altura proporcional */
+  margin: 20px auto; /* Centralizado */
+  display: block;
+}
+
+.logounico {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin: 5px auto; /* Centralizado */
+}
+
+@media (max-width: 768px) {
+  .iframe-container {
+    width: 100%;
+  }
+  .logo {
+    width: 100%;
+  }
+}
