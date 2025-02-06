@@ -87,7 +87,7 @@ Recebe o token do processo criado. Esse token é importante para conseguirmos au
 Recebe uma função de callback que será executada no término da jornada do by Unico, passando como argumento o objeto do processo com os seguintes dados: { captureConcluded, concluded, id }
 
 const processId = '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf';
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
 
 const process = {
   id: '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf',
