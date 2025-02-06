@@ -1,59 +1,110 @@
-# PocCbuAngular
+<p align='center'>
+  <a href='https://unico.io'>
+    <img width='350' src='https://unico.io/wp-content/uploads/2024/05/idcloud-horizontal-color.svg'></img>
+  </a>
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+<h1 align='center'>SDK Iframe</h1>
 
-## Development server
+<div align='center'>
+  
+  ### POC de implementação do SDK IDpay CBU em Angular
+  
+  ![Angular](https://static-00.iconduck.com/assets.00/angular-icon-2048x554-ogh7idu0.png)
+</div>
 
-To start a local development server, run:
+## 💻 Compatibilidade
 
-```bash
-ng serve
-```
+### Versões mínimas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 14
 
-## Code scaffolding
+### Dispositivos compatíveis
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Você pode conferior os aparelhos testados em nossos laboratórios <a href='https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/visao-geral#dispositivos-compativeis'>nesta</a> lista de dispositivos.
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ✨ Como começar
 
-```bash
-ng generate --help
-```
+Para utilizar o by Unico por meio do SDK do by Unico, o primeiro passo é cadastrar os domínios que serão utilizados como host para exibir o iFrame da jornada do usuário no by Unico.
 
-## Building
+Sinalize o responsável pelo seu projeto de integração ou o time de suporte da Unico para realizar essa configuração.
 
-To build the project run:
+Para começar a usar o SDK, é necessário realizar a instalação do SDK Web da Unico. Vale destacar que o "by Unico" utiliza o mesmo SDK empregado no IDPay.:
 
-```bash
-ng build
-```
+$ npm install idpay-b2b-sdk@0.0.27 ou no caso dessa POC apenas o npm install
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Para conseguir executa-la é necessario ter uma conta de servico na Unico e um ambiente de testes cadastrado pelo seu gerente de projetos para que voce consiga criar um processo, após isso ao criar um processo voce irá recebe um ID de processo e um Token no response.
 
-## Running unit tests
+Com essas informacoes voce deve passar dentro dos métodos Init e Open conforme abaixo e depois executar o npm start para iniciar a POC.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Feito isso deve criar no botao de Init para iniciar a autenticacao e depois no Open para abrir o processo e inciar o fluxo By Unico.
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
+## ✨ Metodos disponiveis
 
-For end-to-end (e2e) testing, run:
+init(options)
+Esse método inicializa o SDK, fazendo um pré-carregamento de assets, criando a experiência mais fluida para o usuário final. Nesse momento é preciso enviar o token recebido como resultado do CreateProcess.
 
-```bash
-ng e2e
-```
+<strong>Parâmetros:</strong>
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+options - é um objeto com as seguintes propriedades de configuração:
 
-## Additional Resources
+<strong>type</strong>
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+O tipo de fluxo que será inicializado. No by Unico utilizamos a opção "IFRAME".
+
+<strong>token</strong>
+
+Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
+
+
+import { IDPaySDK } from “idpay-b2b-sdk”;
+
+IDPaySDK.init({
+  type: 'IFRAME',
+  env: 'uat'// Só irá ser preenchido se for ambiente de testes.
+  token,
+});
+
+<strong>open(options)</strong>
+Esse método realiza a abertura da experiência do by Unico. Para o fluxo do tipo IFRAME, essa função exibe o iframe já pré-carregado, e inicia o fluxo de mensageria entre a página do cliente e a experiência do by Unico.
+
+Parâmetros:
+
+<strong>options</strong> - é um objeto com propriedades de configuração:
+
+<strong>processId</strong>
+
+Recebe o ID do processo criado. Esse ID é importante para conseguirmos obter os detalhes do processo e realizarmos todo o fluxo da maneira correta (pode ser obtido na criação do processo via API).
+
+<strong>token</strong>
+
+Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
+
+<strong>onFinish(process)</strong>
+
+Recebe uma função de callback que será executada no término da jornada do by Unico, passando como argumento o objeto do processo com os seguintes dados: { captureConcluded, concluded, id }
+
+const processId = '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
+const process = {
+  id: '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf',
+  concluded: true,
+  captureConcluded: true
+};
+
+const onFinishCallback = process => {
+  console.log('Process', process);
+}
+
+IDPaySDK.open({
+  transactionId: processId,
+  token: token,
+  onFinish: onFinishCallback
+});
+
+Link da nossa documentacao: 
+
+https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/controlando-a-experiencia/sdk#como-comecar
