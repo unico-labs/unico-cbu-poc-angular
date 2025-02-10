@@ -10,7 +10,6 @@
   
   ### POC de implementação do SDK IDpay CBU em Angular
   
-  ![Angular] 
   <img width='350' src='https://static-00.iconduck.com/assets.00/angular-icon-2048x554-ogh7idu0.png'></img>
 </div>
 
@@ -68,6 +67,8 @@ IDPaySDK.init({
   token,
 });
 
+---
+
 <strong>open(options)</strong>
 ### Esse método realiza a abertura da experiência do by Unico. Para o fluxo do tipo IFRAME, essa função exibe o iframe já pré-carregado, e inicia o fluxo de mensageria entre a página do cliente e a experiência do by Unico.
 
@@ -107,6 +108,8 @@ IDPaySDK.open({
   token: token,
   onFinish: onFinishCallback
 });
+
+---
 
 ## ✨ Link da nossa documentacao: 
 
