@@ -66,6 +66,7 @@ IDPaySDK.init({
   env: 'uat'// Só irá ser preenchido se for ambiente de testes.
   token,
 });
+```
 
 ---
 
@@ -90,6 +91,7 @@ IDPaySDK.init({
 
 ```javascript
 const processId = '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf';
+```
 
 ```javascript
 const process = {
@@ -97,10 +99,13 @@ const process = {
   concluded: true,
   captureConcluded: true
 };
+```
+
 ```javascript
 const onFinishCallback = process => {
   console.log('Process', process);
 }
+```
 
 ```javascript
 IDPaySDK.open({
@@ -108,6 +113,7 @@ IDPaySDK.open({
   token: token,
   onFinish: onFinishCallback
 });
+```
 
 ---
 
