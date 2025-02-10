@@ -10,7 +10,8 @@
   
   ### POC de implementação do SDK IDpay CBU em Angular
   
-  ![Angular](https://static-00.iconduck.com/assets.00/angular-icon-2048x554-ogh7idu0.png)
+  ![Angular] 
+  <img width='350' src='https://static-00.iconduck.com/assets.00/angular-icon-2048x554-ogh7idu0.png'></img>
 </div>
 
 ## 💻 Compatibilidade
@@ -52,13 +53,13 @@ options - é um objeto com as seguintes propriedades de configuração:
 
 <strong>type</strong>
 
-O tipo de fluxo que será inicializado. No by Unico utilizamos a opção "IFRAME".
+### O tipo de fluxo que será inicializado. No by Unico utilizamos a opção "IFRAME".
 
 <strong>token</strong>
 
-Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
+### Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
 
-
+```javascript
 import { IDPaySDK } from “idpay-b2b-sdk”;
 
 IDPaySDK.init({
@@ -68,43 +69,45 @@ IDPaySDK.init({
 });
 
 <strong>open(options)</strong>
-Esse método realiza a abertura da experiência do by Unico. Para o fluxo do tipo IFRAME, essa função exibe o iframe já pré-carregado, e inicia o fluxo de mensageria entre a página do cliente e a experiência do by Unico.
+### Esse método realiza a abertura da experiência do by Unico. Para o fluxo do tipo IFRAME, essa função exibe o iframe já pré-carregado, e inicia o fluxo de mensageria entre a página do cliente e a experiência do by Unico.
 
-Parâmetros:
+## Parâmetros:
 
 <strong>options</strong> - é um objeto com propriedades de configuração:
 
 <strong>processId</strong>
 
-Recebe o ID do processo criado. Esse ID é importante para conseguirmos obter os detalhes do processo e realizarmos todo o fluxo da maneira correta (pode ser obtido na criação do processo via API).
+### Recebe o ID do processo criado. Esse ID é importante para conseguirmos obter os detalhes do processo e realizarmos todo o fluxo da maneira correta (pode ser obtido na criação do processo via API).
 
 <strong>token</strong>
 
-Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
+### Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
 
 <strong>onFinish(process)</strong>
 
-Recebe uma função de callback que será executada no término da jornada do by Unico, passando como argumento o objeto do processo com os seguintes dados: { captureConcluded, concluded, id }
+### Recebe uma função de callback que será executada no término da jornada do by Unico, passando como argumento o objeto do processo com os seguintes dados: { captureConcluded, concluded, id }
 
+```javascript
 const processId = '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf';
 
-
+```javascript
 const process = {
   id: '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf',
   concluded: true,
   captureConcluded: true
 };
-
+```javascript
 const onFinishCallback = process => {
   console.log('Process', process);
 }
 
+```javascript
 IDPaySDK.open({
   transactionId: processId,
   token: token,
   onFinish: onFinishCallback
 });
 
-Link da nossa documentacao: 
+## ✨ Link da nossa documentacao: 
 
 https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/controlando-a-experiencia/sdk#como-comecar
