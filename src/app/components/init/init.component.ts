@@ -13,7 +13,7 @@ import { UnicoSDK } from 'idpay-b2b-sdk/index.js';
 export class InitComponent {
   Init(): void {
 
-const token = '';
+const token = ''; // inserir o token
 
 UnicoSDK.init({
   type: 'IFRAME',
