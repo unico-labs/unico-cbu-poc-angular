@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 //@ts-ignore
-import { IDPaySDK } from 'idpay-b2b-sdk';
+import { UnicoSDK } from 'idpay-b2b-sdk/index.js';
 
 
 @Component({
@@ -15,12 +15,12 @@ export class InitComponent {
 
 const token = '';
 
-IDPaySDK.init({
+UnicoSDK.init({
   type: 'IFRAME',
   env: 'uat',
   token,
 });
-    console.log(IDPaySDK.init);
+    console.log(UnicoSDK.init);
 
   };
 }

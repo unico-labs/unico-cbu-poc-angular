@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 //@ts-ignore
-import { IDPaySDK } from 'idpay-b2b-sdk';
+import { UnicoSDK } from 'idpay-b2b-sdk/index.js';
 
 @Component({
   selector: 'app-open',
@@ -12,22 +12,16 @@ export class OpenComponent {
 open(): void {
   const processId = '';
   const token = '';
-
-  const process = {
-    id: '',
-    concluded: true,
-    captureConcluded: true
-  };
   
   const onFinishCallback = (process: any) => {
     console.log('Process', process);
   };
 
-  IDPaySDK.open({
+  UnicoSDK.open({
     transactionId: processId,
     token: token,
     onFinish: onFinishCallback
   });
-  console.log(IDPaySDK.open);
+  console.log(UnicoSDK.open);
 }
 }
