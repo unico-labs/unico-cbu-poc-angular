@@ -8,7 +8,7 @@
 
 <div align='center'>
   
-  ### POC de implementação do SDK IDpay CBU em Angular
+  ### POC de implementação do UnicoSDK CBU em Angular
   
   <img width='350' src='https://static-00.iconduck.com/assets.00/angular-icon-2048x554-ogh7idu0.png'></img>
 </div>
@@ -26,13 +26,15 @@
 
 ## ✨ Como começar
 
-Para utilizar o by Unico por meio do SDK do by Unico, o primeiro passo é cadastrar os domínios que serão utilizados como host para exibir o iFrame da jornada do usuário no by Unico.
+Para utilizar o by Unico por meio do UnicoSDK by Unico, o primeiro passo é cadastrar os domínios que serão utilizados como host para exibir o iFrame da jornada do usuário no by Unico.
 
 Sinalize o responsável pelo seu projeto de integração ou o time de suporte da Unico para realizar essa configuração.
 
-Para começar a usar o SDK, é necessário realizar a instalação do SDK Web da Unico. Vale destacar que o "by Unico" utiliza o mesmo SDK empregado no IDPay.:
+Para começar a usar o CBU, é necessário realizar a instalação do UnicoSDK. Vale destacar que o "by Unico" utiliza o mesmo SDK empregado no IDPay.:
 
-$ npm install idpay-b2b-sdk@0.0.27 ou no caso dessa POC apenas o npm install
+```javascript
+$ npm install idpay-b2b-sdk ou no caso dessa POC apenas o npm install
+```
 
 Para conseguir executa-la é necessario ter uma conta de servico na Unico e um ambiente de testes cadastrado pelo seu gerente de projetos para que voce consiga criar um processo, após isso ao criar um processo voce irá recebe um ID de processo e um Token no response.
 
