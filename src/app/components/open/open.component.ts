@@ -10,8 +10,8 @@ import { UnicoSDK } from 'idpay-b2b-sdk/index.js';
 })
 export class OpenComponent {
 open(): void {
-  const processId = '';
-  const token = '';
+  const processId = ''; // inserir o processID
+  const token = ''; // inserir o token
   
   const onFinishCallback = (process: any) => {
     console.log('Process', process);
