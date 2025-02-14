@@ -17,7 +17,7 @@
 
 ### Versões mínimas
 
-- Angular 14
+- Angular 14 ( A POC foi desenvolvida com Standalone components para usar versoes inferiores com NgModule precisar realizar o ajuste )
 
 ### Dispositivos compatíveis
 
