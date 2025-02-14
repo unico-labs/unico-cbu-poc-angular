@@ -63,7 +63,7 @@ options - é um objeto com as seguintes propriedades de configuração:
 ```javascript
 import { UnicoSDK } from “idpay-b2b-sdk”;
 
-IDPaySDK.init({
+UnicoSDK.init({
   env: 'uat'// Só irá ser preenchido se for ambiente de testes.
   token,
 });
