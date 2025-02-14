@@ -16,11 +16,8 @@ export class InitComponent {
 const token = ''; // inserir o token
 
 UnicoSDK.init({
-  type: 'IFRAME',
   env: 'uat',
   token,
 });
-    console.log(UnicoSDK.init);
-
   };
 }

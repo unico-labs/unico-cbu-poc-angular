@@ -22,6 +22,5 @@ open(): void {
     token: token,
     onFinish: onFinishCallback
   });
-  console.log(UnicoSDK.open);
 }
 }
