@@ -61,7 +61,7 @@ options - é um objeto com as seguintes propriedades de configuração:
 ### Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
 
 ```javascript
-import { IDPaySDK } from “idpay-b2b-sdk”;
+import { UnicoSDK } from “idpay-b2b-sdk”;
 
 IDPaySDK.init({
   env: 'uat'// Só irá ser preenchido se for ambiente de testes.
@@ -109,7 +109,7 @@ const onFinishCallback = process => {
 ```
 
 ```javascript
-IDPaySDK.open({
+UnicoSDK.open({
   transactionId: processId,
   token: token,
   onFinish: onFinishCallback
