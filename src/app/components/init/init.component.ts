@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
-//@ts-ignore
-import { UnicoSDK } from 'idpay-b2b-sdk/index.js';
-
+import { ByUnicoSDK } from 'idpay-b2b-sdk';
 
 @Component({
   selector: 'app-init',
   imports: [],
   templateUrl: './init.component.html',
-  styleUrl: './init.component.css'
-
+  styleUrl: './init.component.css',
 })
 export class InitComponent {
   Init(): void {
+    const toke* *
+      *************************************.*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************.*************************************************************************************-*************************************-*****************-***********************************************************************************************-*******-*****************************************************************************************-*******O06GsMkIWmn-kACGwrhLKT1j7yHo3ZZ4j9dDLpNE9Anl2lz4UVO2ejBXT9QRUE2ZgO5yMTrT2QmlBAcOe07K3co0a7GyEn81g238TgliQIoCCcjIRoenIYv1j1yZvOTD3iqPk0DNBPCZbtFqZA4rpez4A3_RGFYW5jXXPGQtYyQBn8usogp_tCtGXJeyGKXjbJNxkWos7CMkiQYUA9vqhwj1caTp5AkaG7Qv8_JLoZGa2UOTHlyvspOdsn_XAriBmkB-q7cqwT9n9AMNsvdvT2RonICoU10BO3tN1PftzIrgWD94lArYFurdHslR8kC5-m4DyqcchmKpvB6OhUsc'; // inserir o token
 
-const token = ''; // inserir o token
-
-UnicoSDK.init({
-  env: 'uat',
-  token,
-});
-  };
+    ByUnicoSDK.init({
+      env: 'uat',
+      token,
+    });
+  }
 }

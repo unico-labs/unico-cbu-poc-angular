@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
-//@ts-ignore
-import { UnicoSDK } from 'idpay-b2b-sdk/index.js';
+import { ByUnicoSDK } from 'idpay-b2b-sdk';
 
 @Component({
   selector: 'app-open',
   imports: [],
   templateUrl: './open.component.html',
-  styleUrl: './open.component.css'
+  styleUrl: './open.component.css',
 })
 export class OpenComponent {
-open(): void {
-  const processId = ''; // inserir o processID
-  const token = ''; // inserir o token
-  
-  const onFinishCallback = (process: any) => {
-    console.log('Process', process);
-  };
+  open(): void {
+    const processId = '392da0d1-a66c-4ee8-9829-a90c519ab439'; // inserir o processID
+    const tok** *
+      *************************************.*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************.*************************************************************************************-*************************************-*****************-***********************************************************************************************-*******-*****************************************************************************************-******iO06GsMkIWmn-kACGwrhLKT1j7yHo3ZZ4j9dDLpNE9Anl2lz4UVO2ejBXT9QRUE2ZgO5yMTrT2QmlBAcOe07K3co0a7GyEn81g238TgliQIoCCcjIRoenIYv1j1yZvOTD3iqPk0DNBPCZbtFqZA4rpez4A3_RGFYW5jXXPGQtYyQBn8usogp_tCtGXJeyGKXjbJNxkWos7CMkiQYUA9vqhwj1caTp5AkaG7Qv8_JLoZGa2UOTHlyvspOdsn_XAriBmkB-q7cqwT9n9AMNsvdvT2RonICoU10BO3tN1PftzIrgWD94lArYFurdHslR8kC5-m4DyqcchmKpvB6OhUsc'; // inserir o token
 
-  UnicoSDK.open({
-    transactionId: processId,
-    token: token,
-    onFinish: onFinishCallback
-  });
-}
+    const onFinishCallback = (process: any) => {
+      console.log('Process', process);
+    };
+
+    ByUnicoSDK.open({
+      transactionId: processId,
+      token: token,
+      onFinish: onFinishCallback,
+    });
+  }
 }
