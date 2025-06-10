@@ -17,9 +17,6 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "paths": {
-      "idpay-b2b-sdk": ["./node_modules/idpay-b2b-sdk/index.js"]
-    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
