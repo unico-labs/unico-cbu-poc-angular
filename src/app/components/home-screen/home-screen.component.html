@@ -1,0 +1,60 @@
+<div class="home-screen">
+  <div class="home-header">
+    <img 
+      src="assets/logo-home.svg" 
+      alt="Unico Logo" 
+      class="unico-logo"
+    >
+    <h1 class="home-title">Unico PoC SDK By Unico - Angular</h1>
+    <p class="home-subtitle">
+      Choose the display mode to test the Unico SDK integration
+    </p>
+  </div>
+  <div class="mode-selection">
+    <button
+      class="mode-button modal-button"
+      (click)="onModeSelect('modal')"
+      type="button"
+    >
+      <div class="button-icon">🪟</div>
+      <h3>Modal Test</h3>
+      <p>SDK displayed in an overlay modal</p>
+    </button>
+
+    <button
+      class="mode-button fullscreen-button"
+      (click)="onModeSelect('fullscreen')"
+      type="button"
+    >
+      <div class="button-icon">🖥️</div>
+      <h3>Fullscreen Test</h3>
+      <p>SDK occupying the entire browser screen</p>
+    </button>
+
+    <button
+      class="mode-button iframe-button"
+      (click)="onModeSelect('iframe')"
+      type="button"
+    >
+      <div class="button-icon">🖼️</div>
+      <h3>Iframe Box Test</h3>
+      <p>SDK embedded in a page container</p>
+    </button>
+  </div>
+
+  <footer class="home-footer">
+    <div class="footer-content">
+      <p>
+        For detailed implementation guide, visit our
+        <a 
+          href="https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/controlando-a-experiencia/sdk#como-comecar"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="documentation-link"
+        >
+          Official Documentation
+        </a>
+      </p>
+    </div>
+  </footer>
+</div>

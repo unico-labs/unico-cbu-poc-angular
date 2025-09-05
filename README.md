@@ -8,63 +8,63 @@
 
 <div align='center'>
   
-  ### POC de implementação do UnicoSDK CBU em Angular
+  ### UnicoSDK CBU Implementation POC in Angular
   
   <img width='350' src='https://static-00.iconduck.com/assets.00/angular-icon-2048x554-ogh7idu0.png'></img>
 </div>
 
-## 💻 Compatibilidade
+## 💻 Compatibility
 
-### Versões mínimas
+### Minimum versions
 
-- Angular 14 ( A POC foi desenvolvida com Standalone components para usar versoes inferiores com NgModule precisar realizar o ajuste )
+- Angular 14 (The POC was developed with Standalone components. For lower versions with NgModule, adjustments need to be made)
 
-### Dispositivos compatíveis
+### Compatible devices
 
-- Você pode conferior os aparelhos testados em nossos laboratórios <a href='https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/visao-geral#dispositivos-compativeis'>nesta</a> lista de dispositivos.
+- You can check the devices tested in our laboratories in <a href='https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/visao-geral#dispositivos-compativeis'>this</a> device list.
 
 
-## ✨ Como começar
+## ✨ Getting Started
 
-Para utilizar o by Unico por meio do UnicoSDK by Unico, o primeiro passo é cadastrar os domínios que serão utilizados como host para exibir o iFrame da jornada do usuário no by Unico.
+To use by Unico through the UnicoSDK by Unico, the first step is to register the domains that will be used as hosts to display the iFrame of the user journey in by Unico.
 
-Sinalize o responsável pelo seu projeto de integração ou o time de suporte da Unico para realizar essa configuração.
+Contact the person responsible for your integration project or Unico's support team to perform this configuration.
 
-Para começar a usar o CBU, é necessário realizar a instalação do UnicoSDK. Vale destacar que o "by Unico" utiliza o mesmo SDK empregado no IDPay.:
+To start using CBU, it's necessary to install the UnicoSDK. It's worth noting that "by Unico" uses the same SDK employed in IDPay:
 
 ```javascript
-$ npm install idpay-b2b-sdk ou no caso dessa POC apenas o npm install
+$ npm install idpay-b2b-sdk or for this POC just run npm install
 ```
 
-Para conseguir executa-la é necessario ter uma conta de servico na Unico e um ambiente de testes cadastrado pelo seu gerente de projetos para que voce consiga criar um processo, após isso ao criar um processo voce irá recebe um ID de processo e um Token no response.
+To be able to run it, you need to have a service account at Unico and a test environment registered by your project manager so you can create a process. After creating a process, you will receive a process ID and a Token in the response.
 
-Com essas informacoes voce deve passar dentro dos métodos Init e Open conforme abaixo e depois executar o npm start para iniciar a POC.
+With this information, you should pass it within the Init and Open methods as shown below, then run npm start to start the POC.
 
-Feito isso deve criar no botao de Init para iniciar a autenticacao e depois no Open para abrir o processo e inciar o fluxo By Unico.
+Once done, you should click the Init button to start authentication and then Open to open the process and start the By Unico flow.
 
 
-## ✨ Metodos disponiveis
+## ✨ Available Methods
 
 init(options)
-Esse método inicializa o SDK, fazendo um pré-carregamento de assets, criando a experiência mais fluida para o usuário final. Nesse momento é preciso enviar o token recebido como resultado do CreateProcess.
+This method initializes the SDK by pre-loading assets, creating a smoother experience for the end user. At this moment, you need to send the token received as a result of CreateProcess.
 
-<strong>Parâmetros:</strong>
+<strong>Parameters:</strong>
 
-options - é um objeto com as seguintes propriedades de configuração:
+options - is an object with the following configuration properties:
 
 <strong>type</strong>
 
-### O tipo de fluxo que será inicializado. No by Unico utilizamos a opção "IFRAME".
+### The type of flow that will be initialized. In by Unico we use the "IFRAME" option.
 
 <strong>token</strong>
 
-### Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
+### Receives the token from the created process. This token is important for us to authenticate the journey and ensure that only authorized domains use it (can be obtained when creating the process via API).
 
 ```javascript
-import { ByUnicoSDK } from “idpay-b2b-sdk”;
+import { ByUnicoSDK } from "idpay-b2b-sdk";
 
 ByUnicoSDK.init({
-  env: 'uat'// Só irá ser preenchido se for ambiente de testes.
+  env: 'uat'// Only to be filled if it's a test environment.
   token,
 });
 ```
@@ -72,23 +72,23 @@ ByUnicoSDK.init({
 ---
 
 <strong>open(options)</strong>
-### Esse método realiza a abertura da experiência do by Unico. Para o fluxo do tipo IFRAME, essa função exibe o iframe já pré-carregado, e inicia o fluxo de mensageria entre a página do cliente e a experiência do by Unico.
+### This method opens the by Unico experience. For IFRAME type flow, this function displays the pre-loaded iframe and starts the messaging flow between the client page and the by Unico experience.
 
-## Parâmetros:
+## Parameters:
 
-<strong>options</strong> - é um objeto com propriedades de configuração:
+<strong>options</strong> - is an object with configuration properties:
 
 <strong>processId</strong>
 
-### Recebe o ID do processo criado. Esse ID é importante para conseguirmos obter os detalhes do processo e realizarmos todo o fluxo da maneira correta (pode ser obtido na criação do processo via API).
+### Receives the ID of the created process. This ID is important for us to obtain process details and perform the entire flow correctly (can be obtained when creating the process via API).
 
 <strong>token</strong>
 
-### Recebe o token do processo criado. Esse token é importante para conseguirmos autenticar a jornada e garantir que somente domínios autorizados utilizem-na (pode ser obtido na criação do processo via API).
+### Receives the token from the created process. This token is important for us to authenticate the journey and ensure that only authorized domains use it (can be obtained when creating the process via API).
 
 <strong>onFinish(process)</strong>
 
-### Recebe uma função de callback que será executada no término da jornada do by Unico, passando como argumento o objeto do processo com os seguintes dados: { captureConcluded, concluded, id }
+### Receives a callback function that will be executed at the end of the by Unico journey, passing as argument the process object with the following data: { captureConcluded, concluded, id }
 
 ```javascript
 const processId = '9bc22bac-1e64-49a5-94d6-9e4f8ec9a1bf';
@@ -118,6 +118,6 @@ ByUnicoSDK.open({
 
 ---
 
-## ✨ Link da nossa documentacao: 
+## ✨ Link to our documentation: 
 
 https://devcenter.unico.io/idcloud/integracao/integracao-by-unico/controlando-a-experiencia/sdk#como-comecar
