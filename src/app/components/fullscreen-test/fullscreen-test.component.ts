@@ -130,10 +130,7 @@ export class FullscreenTestComponent implements OnInit, OnDestroy {
     }
   }
 
-  /**
-   * Callback executado quando a transação é finalizada
-   * Automaticamente sai do modo fullscreen
-   */
+
   private handleTransactionFinish(result: any): void {
     console.log('*** FULLSCREEN TRANSACTION FINISHED ***', result);
     
@@ -178,9 +175,7 @@ export class FullscreenTestComponent implements OnInit, OnDestroy {
     console.log('*** FULLSCREEN SUCCESS:', message);
   }
 
-  /**
-   * Getters para validação e estados da UI
-   */
+  
   get canInitialize(): boolean {
     return !this.isProcessing && !this.isInitialized && !this.isFullscreen && this.token.trim().length > 0;
   }
