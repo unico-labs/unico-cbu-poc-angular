@@ -1,0 +1,118 @@
+/* ===== HOME SCREEN COMPONENT ===== */
+
+.mode-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.mode-button {
+  background: white !important;
+  border: 2px solid var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+  padding: 2rem !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  box-shadow: var(--shadow-light) !important;
+  min-height: 200px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 1 !important;
+  pointer-events: auto !important;
+  color: var(--text-color) !important;
+  font-family: inherit !important;
+}
+
+.mode-button:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-medium) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.mode-button:active {
+  transform: translateY(-2px) !important;
+}
+
+.button-icon {
+  font-size: 3rem !important;
+  margin-bottom: 1rem !important;
+  line-height: 1 !important;
+}
+
+.mode-button h3 {
+  color: var(--secondary-color) !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.mode-button p {
+  color: #6c757d !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* Cores específicas para hover de cada botão */
+.modal-button:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+.modal-button:hover h3,
+.modal-button:hover p {
+  color: white !important;
+}
+
+.fullscreen-button:hover {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  color: white !important;
+}
+
+.fullscreen-button:hover h3,
+.fullscreen-button:hover p {
+  color: white !important;
+}
+
+.iframe-button:hover {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  color: white !important;
+}
+
+.iframe-button:hover h3,
+.iframe-button:hover p {
+  color: white !important;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 768px) {
+  .mode-selection {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .mode-button {
+    padding: 1.5rem !important;
+    min-height: 180px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mode-button {
+    padding: 1rem !important;
+    min-height: 160px !important;
+  }
+  
+  .button-icon {
+    font-size: 2.5rem !important;
+  }
+}

@@ -1,0 +1,112 @@
+<div class="fullscreen-test-container">
+  
+  <div class="config-form" *ngIf="showControls">
+    <h2>Fullscreen Configuration</h2>
+    <p class="form-description">
+      Configure parameters to use Unico SDK in fullscreen mode
+    </p>
+
+    <div class="input-group">
+      <label for="fullscreenToken" class="input-label">
+        Authentication Token *
+        <span class="label-hint">Token provided by Unico</span>
+      </label>
+      <input
+        id="fullscreenToken"
+        type="text"
+        [(ngModel)]="token"
+        placeholder="Paste token here..."
+        class="input-field"
+        [disabled]="isInitialized || isProcessing"
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="fullscreenTransactionId" class="input-label">
+        Transaction ID *
+        <span class="label-hint">Transaction identifier</span>
+      </label>
+      <input
+        id="fullscreenTransactionId"
+        type="text"
+        [(ngModel)]="transactionId"
+        placeholder="Ex: 12345-abcde-67890..."
+        class="input-field"
+        [disabled]="isProcessing"
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="action-buttons">
+      <button
+        type="button"
+        class="action-button init-button"
+        [disabled]="!canInitialize"
+        (click)="initializeSDK()"
+      >
+        <span *ngIf="!isProcessing || isInitialized">
+          {{ isInitialized ? '✅ Initialized' : '🚀 Initialize SDK' }}
+        </span>
+        <span *ngIf="isProcessing && !isInitialized">
+          ⏳ Initializing...
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="action-button fullscreen-button"
+        [disabled]="!canOpenFullscreen"
+        (click)="openFullscreen()"
+      >
+        <span *ngIf="!isProcessing">📺 Open Fullscreen</span>
+        <span *ngIf="isProcessing">⏳ Opening...</span>
+      </button>
+
+      <button
+        type="button"
+        class="action-button close-button"
+        [disabled]="!canClose"
+        (click)="closeSDK()"
+      >
+        <span *ngIf="!isProcessing">❌ Close SDK</span>
+        <span *ngIf="isProcessing">⏳ Closing...</span>
+      </button>
+    </div>
+
+    <div class="messages" *ngIf="errorMessage || successMessage">
+      <div class="error-message" *ngIf="errorMessage">
+        <strong>❌ Error:</strong> {{ errorMessage }}
+      </div>
+      <div class="success-message" *ngIf="successMessage">
+        <strong>✅ Success:</strong> {{ successMessage }}
+      </div>
+    </div>
+
+  </div>
+
+  <div 
+    #fullscreenContainer
+    id="unico_iframe_embedded_fullscreen" 
+    class="fullscreen-iframe"
+    [class.fullscreen]="isFullscreen"
+    style="display: none;">
+  </div>
+
+</div>
+
+<button 
+  *ngIf="isFullscreen"
+  class="emergency-exit-button"
+  (click)="exitFullscreen()"
+  type="button"
+  title="Exit fullscreen mode (Emergency)">
+  ESC
+</button>
+
+<div class="fullscreen-instructions" *ngIf="isFullscreen">
+  <div class="instructions-content">
+    <h4>Fullscreen Mode Active</h4>
+    <p>Complete the process below or use ESC to exit</p>
+  </div>
+</div>

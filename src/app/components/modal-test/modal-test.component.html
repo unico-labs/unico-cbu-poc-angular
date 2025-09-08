@@ -1,0 +1,95 @@
+<div class="modal-test-container">
+  
+  <div class="config-form">
+    <h2>Modal Configuration</h2>
+    <p class="form-description">
+      Configure parameters to use Unico SDK in modal mode
+    </p>
+
+    <div class="input-group">
+      <label for="modalToken" class="input-label">
+        Authentication Token *
+        <span class="label-hint">Token provided by Unico</span>
+      </label>
+      <input
+        id="modalToken"
+        type="text"
+        [(ngModel)]="token"
+        placeholder="Paste token here..."
+        class="input-field"
+        [disabled]="showModal || isProcessing"
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="modalTransactionId" class="input-label">
+        Transaction ID *
+        <span class="label-hint">Transaction identifier</span>
+      </label>
+      <input
+        id="modalTransactionId"
+        type="text"
+        [(ngModel)]="transactionId"
+        placeholder="Ex: 12345-abcde-67890..."
+        class="input-field"
+        [disabled]="showModal || isProcessing"
+        autocomplete="off"
+      >
+    </div>
+
+    <!-- Botão para abrir modal -->
+    <div class="action-buttons">
+      <button
+        type="button"
+        class="action-button modal-open-button"
+        [disabled]="!canOpenModal"
+        (click)="openModal()"
+      >
+        <span *ngIf="!isProcessing">🪟 Open Modal</span>
+        <span *ngIf="isProcessing">⏳ Opening...</span>
+      </button>
+    </div>
+
+    <div class="messages" *ngIf="error">
+      <div class="error-message">
+        <strong>❌ Error:</strong> {{ error }}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div 
+  class="modal-overlay" 
+  *ngIf="showModal"
+  (click)="closeModal()">
+  
+  <div 
+    class="modal-content"
+    (click)="$event.stopPropagation()">
+    
+    <button 
+      class="modal-close-button" 
+      (click)="closeModal()"
+      type="button"
+      [disabled]="isProcessing">
+      ×
+    </button>
+
+    <div class="modal-iframe-wrapper">
+      <div
+        #unicoIframeRef
+        id="unico_iframe_embedded"
+        [attr.key]="iframeKey"
+        class="modal-sdk-area">
+        
+        <div class="modal-loading" *ngIf="isProcessing">
+          <div class="loading-spinner"></div>
+          <p>Initializing SDK...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
